@@ -64,7 +64,7 @@ exports.loginUserController = async (req, res) => {
       id: user._id,
     };
 
-    const token = await jwt.sign(data, "shhhhh");
+    const token = await jwt.sign(data, process.env.AUTH_SECRET);
 
     user.password = undefined;
     res
